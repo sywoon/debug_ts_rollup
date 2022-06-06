@@ -20,6 +20,10 @@ export default {
 			format: 'cjs', // commonjs 形式的包， require 导入 
 			sourcemap: true
 		}, {
+			file: 'dist/main.iife.js', // package.json 中 "main": "dist/index.iife.js",
+			format: 'iife', // 可以嵌入html中 通过<script>标签来使用
+			sourcemap: true
+		}, {
 			file: 'dist/main.umd.js',
 			name: 'Main',
 			format: 'umd', // umd 兼容形式的包， 可以直接应用于网页 script
@@ -28,13 +32,13 @@ export default {
 	],
 	plugins: [
 		typescript({
-			//tsconfig: "./tsconfig.json",
-			check: false,
-			clean: true
-			// tsconfigOverride: { compilerOptions: { removeComments: true } }
-		}),
-		babel({
-			exclude: 'node_modules/**'  // 排除node_module下的所有文件
+			tsconfig: "./tsconfig.json",
+			//check: false,
+			//clean: true,
+			tsconfigOverride: { compilerOptions: { removeComments: true } }
 		})
+		// babel({
+		// 	exclude: 'node_modules/**'  // 排除node_module下的所有文件
+		// })
 	]
 }
