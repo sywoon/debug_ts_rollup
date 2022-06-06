@@ -33,12 +33,13 @@ export default {
 	plugins: [
 		typescript({
 			tsconfig: "./tsconfig.json",
-			//check: false,
-			//clean: true,
-			tsconfigOverride: { compilerOptions: { removeComments: true } }
+			check: true,
+			clean: false,
+			useTsconfigDeclarationDir: true,
+			// tsconfigOverride: { compilerOptions: { removeComments: true } }
+		}),
+		babel({
+			exclude: 'node_modules/**'  // 排除node_module下的所有文件
 		})
-		// babel({
-		// 	exclude: 'node_modules/**'  // 排除node_module下的所有文件
-		// })
 	]
 }
