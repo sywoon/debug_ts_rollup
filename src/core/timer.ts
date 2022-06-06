@@ -1,6 +1,6 @@
 
 export class Timer {
-    static getTime(): number {
+    getTime(): number {
         return 123;
     }
 }

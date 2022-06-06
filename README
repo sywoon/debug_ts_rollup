@@ -1,4 +1,5 @@
 # debug ts by rollup
-注意:  
-插件的版本必须是"rollup-plugin-typescript2": "^0.31.0",  
+1.   
+插件的版本必须是"rollup-plugin-typescript2": "^0.21.2",  
 最新的0.32.0有bug 编译不过  
+最新的0.31.0不支持多入口ts  
