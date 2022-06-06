@@ -17,13 +17,13 @@ var packsDef = [
         ],
         'out': './dist/core.js'
     },
-    {
-        'libName': "client",
-        'input': [
-            './src/main.ts'
-        ],
-        'out': './dist/client.js'
-    },
+    // {
+    //     'libName': "client",
+    //     'input': [
+    //         './src/main.ts'
+    //     ],
+    //     'out': './dist/client.js'
+    // },
 ]
 
 
@@ -63,7 +63,7 @@ function myMultiInput() {
     return (
         {
             options(options) {
-                console.log('===', options.input)
+                console.log('options', options.input)
                 configure(options.input);
                 options.input = mentry;
             },
@@ -123,7 +123,7 @@ gulp.task('buildJS', async function () {
             input: packsDef[i].input,
             output: {
                 extend: true,
-                globals: { 'Ala2': 'Ala2' }
+                globals: { 'Ala': 'Ala' }
             },
             external: ['Ala'],
             plugins: [
@@ -146,9 +146,9 @@ gulp.task('buildJS', async function () {
             file: packsDef[i].out,
             format: 'iife',
             name: 'Ala',
-            sourcemap: false,
+            sourcemap: true,
             extend: true,
-            globals: { 'Ala3': 'Ala3' }
+            globals: { 'Ala': 'Ala' }
         });
     }
 });
@@ -174,7 +174,7 @@ function compile() {
         ]
     }).then(bundle => {
         return bundle.write({
-            file: 'dist/main.iife.js', // package.json 中 "main": "dist/index.iife.js",
+            file: 'dist/client.js', // package.json 中 "main": "dist/index.iife.js",
 			format: 'iife', // 可以嵌入html中 通过<script>标签来使用
             name: 'mygame',
 			sourcemap: true
@@ -186,6 +186,6 @@ function compile() {
 
 
 // gulp.task('default', gulp.series(compile))   //方法1  传统方式  一个ts入口文件
-gulp.task('default', gulp.series("buildJS"))   //方法2  模仿laya 自定义多个ts入口
+gulp.task('default', gulp.series("buildJS", compile))   //方法2  模仿laya 自定义多个ts入口
 
 
