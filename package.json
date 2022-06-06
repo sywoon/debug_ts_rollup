@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c",
+    "build_gulp": "gulp",
+    "build_rollup": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -17,6 +18,7 @@
     "@babel/register": "^7.17.7",
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
+    "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "rollup": "^2.75.5",
     "rollup-plugin-babel": "^4.4.0",

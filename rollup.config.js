@@ -8,6 +8,7 @@ import globals from 'rollup-plugin-node-globals'; // 如果你的包或依赖用
 import { terser } from 'rollup-plugin-terser'; // 压缩，可以判断模式，开发模式不加入到plugins
 
 
+
 export default {
 	input: './src/main.ts',
 	output: [
