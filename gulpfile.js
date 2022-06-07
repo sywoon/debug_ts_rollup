@@ -163,8 +163,9 @@ function compile() {
                 tsconfig: "./tsconfig.json",
                 check: true,
                 clean: false,
-                useTsconfigDeclarationDir: true,
-                // tsconfigOverride: { compilerOptions: { removeComments: true } }
+                useTsconfigDeclarationDir: false,
+                tsconfigOverride: { compilerOptions: { "declaration": false,
+                    removeComments: true } }
             }),
             glsl({
                 include: /.*(.glsl|.vs|.fs)$/,
